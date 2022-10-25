@@ -1,0 +1,101 @@
+# String Datatype
+firstName: "Sanyasee"
+lastName: "Sahu"
+occupation: Software Developer
+
+message: !!str "Hello! How are you?"
+
+# Numbers
+
+age: 24
+cgpa: 8.26
+favNumber: 1e+10 # Exponential value
+
+# specify the type
+
+number: !!int 17
+commaValue: !!int 1_54_000 # 1,54,000
+
+mark: !!float 90.50
+
+# Booleans
+
+male: true
+sleepy: false
+
+# # Dates
+
+birthDay: 1998-06-14 09:10:20 # ISO 8601
+
+# Null value
+flaws: null
+
+# Store all informations into an Object
+
+person:
+  firstName: &name "Sanyasee"
+  lastName: "Sahu"
+  occupation: Software Developer
+  age: 24
+  cgpa: 8.26
+  favNumber: 1e+10
+  male: true
+  birthDay: 1998-06-14 09:10:20
+  flaws: null
+
+  # Lists in YAML
+
+  hobbies:
+    - movies
+    - riding bike
+
+  # Another notation
+  movies: ["A Beautiful Mind", "The Persuit of Happyness", "Dark Knoght"]
+
+  # Complex List like List of Objects
+  # Each entry in this list will be an object
+  friends:
+    # Way 1
+    - name: "Udit"
+      age: 25
+
+    # Way 2
+    - { name: "Sagar", age: 24 }
+
+    # Way 3 : Easier to read
+    - name: "Gajendra"
+      age: 25
+
+  # Multiple Lines & Formatted Information
+
+  # Writing Information in mupliple lines for readability but as a single line
+
+  # Consider as a single line
+  bio: >
+    I am Software Developer
+    from India,
+    and I like tea.
+
+  # Preserves the formatting of the data
+  signature: |
+    Sanyasee Sahu
+    Software Developer
+    Email- sanyasee12@gmail.com
+
+  # # Anchoring
+
+  id: *name
+
+  #   # Anchoring enitre key-value pair
+  base: &base
+    var1: value1
+
+  foo:
+    <<: *base # var1: value1
+    var2: value2
+
+Peoples:
+  - name: "Sanyasee Sahu"
+    age: 24
+    occupation: "Software Developer"
+    company: "HashedIn by Deloitte"
